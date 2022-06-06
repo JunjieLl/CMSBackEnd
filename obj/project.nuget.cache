@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "x7QNJBwQ1CZ1PXZpUN6iiBBktrqaeZYmBxpNCxeoGs3jNTGmC7O6JM87dt74TF1fgKf0kqrIcz62XfoPUKkOcg==",
+  "success": true,
+  "projectFilePath": "/Users/junjieli/Desktop/github.nosync/CMSBackEnd/CMSBackEnd.csproj",
+  "expectedPackageFiles": [
+    "/Users/junjieli/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "/Users/junjieli/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/Users/junjieli/.nuget/packages/swashbuckle.aspnetcore/6.2.3/swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "/Users/junjieli/.nuget/packages/swashbuckle.aspnetcore.swagger/6.2.3/swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "/Users/junjieli/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "/Users/junjieli/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
