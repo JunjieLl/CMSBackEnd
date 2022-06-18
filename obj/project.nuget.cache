@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "2W9w8mqobopzncE3M5psl9guilMe2Ipf+tGeiDiAJcs0Nsuoiv/HCfuzcqTtTSktxqHe0O0CdIeiGQrNckBkwg==",
+  "dgSpecHash": "Anbu/B44mLX64DngUYTeVB4M8GsyPmaVxfYpAb1aVCb3+bAlQIx/lyuOoiOH9SC5D6lBQAk++ClQvFBudoo4ZQ==",
   "success": true,
   "projectFilePath": "/Users/junjieli/Desktop/github.nosync/CMSBackEnd/CMSBackEnd.csproj",
   "expectedPackageFiles": [
+    "/Users/junjieli/.nuget/packages/automapper/11.0.1/automapper.11.0.1.nupkg.sha512",
+    "/Users/junjieli/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/11.0.0/automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
+    "/Users/junjieli/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/microsoft.entityframeworkcore/6.0.5/microsoft.entityframeworkcore.6.0.5.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/microsoft.entityframeworkcore.abstractions/6.0.5/microsoft.entityframeworkcore.abstractions.6.0.5.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/microsoft.entityframeworkcore.analyzers/6.0.5/microsoft.entityframeworkcore.analyzers.6.0.5.nupkg.sha512",

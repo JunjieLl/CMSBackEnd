@@ -33,3 +33,5 @@
 /Users/junjieli/Desktop/github.nosync/CMSBackEnd/obj/Debug/net6.0/CMSBackEnd.pdb
 /Users/junjieli/Desktop/github.nosync/CMSBackEnd/obj/Debug/net6.0/CMSBackEnd.genruntimeconfig.cache
 /Users/junjieli/Desktop/github.nosync/CMSBackEnd/obj/Debug/net6.0/ref/CMSBackEnd.dll
+/Users/junjieli/Desktop/github.nosync/CMSBackEnd/bin/Debug/net6.0/AutoMapper.dll
+/Users/junjieli/Desktop/github.nosync/CMSBackEnd/bin/Debug/net6.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll

@@ -28,7 +28,7 @@ namespace CMS
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseMySql("server=101.35.111.182;port=55555;uid=cms;pwd=hello;database=cms", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.29-mysql"));
+                optionsBuilder.UseMySql("server=101.35.111.182;port=52125;uid=cms;pwd=hello;database=cms", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.29-mysql"));
             }
         }
 
@@ -69,7 +69,6 @@ namespace CMS
                 entity.HasOne(d => d.User)
                     .WithOne(p => p.CommonUser)
                     .HasForeignKey<CommonUser>(d => d.UserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("common_user_ibfk_1");
 
                 entity.HasMany(d => d.Rooms)
@@ -106,13 +105,11 @@ namespace CMS
                 entity.HasOne(d => d.Activity)
                     .WithMany(p => p.ModifyRecords)
                     .HasForeignKey(d => d.ActivityId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("modify_record_ibfk_2");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.ModifyRecords)
                     .HasForeignKey(d => d.UserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("modify_record_ibfk_1");
             });
 
@@ -129,7 +126,6 @@ namespace CMS
                 entity.HasOne(d => d.User)
                     .WithOne(p => p.RoomManager)
                     .HasForeignKey<RoomManager>(d => d.UserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("room_manager_ibfk_1");
 
                 entity.HasMany(d => d.Rooms)
@@ -137,7 +133,7 @@ namespace CMS
                     .UsingEntity<Dictionary<string, object>>(
                         "Manage",
                         l => l.HasOne<Room>().WithMany().HasForeignKey("RoomId").HasConstraintName("manage_ibfk_2"),
-                        r => r.HasOne<RoomManager>().WithMany().HasForeignKey("UserId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("manage_ibfk_1"),
+                        r => r.HasOne<RoomManager>().WithMany().HasForeignKey("UserId").HasConstraintName("manage_ibfk_1"),
                         j =>
                         {
                             j.HasKey("UserId", "RoomId").HasName("PRIMARY").HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
