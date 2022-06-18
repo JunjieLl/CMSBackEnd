@@ -1,4 +1,4 @@
-namespace CMS;
+namespace CMS.Models;
 
 public class LoginInDto
 {

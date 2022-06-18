@@ -20,7 +20,7 @@ builder.Services.AddCors(opt =>
 });
 //business
 builder.Services.AddScoped<ILoginBusiness, LoginBusiness>();
-
+builder.Services.AddScoped<IPersonalInfoBusiness, PersonalInfoBusiness>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

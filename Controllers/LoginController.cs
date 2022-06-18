@@ -1,11 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 using CMS.Business;
+using CMS.Models;
 
 namespace CMS.Controllers;
 
 
-[Route("api/")]
+[Route("api")]
 [ApiController]
 public class LoginController : ControllerBase
 {

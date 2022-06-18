@@ -1,7 +1,7 @@
 namespace CMS.Models;
-public class LoginOutDto
-{
 
+public class PersonalInfoOutDto
+{
     public string UserId { get; set; } = null!;
 
     public string UserName { get; set; } = null!;
@@ -12,9 +12,9 @@ public class LoginOutDto
 
     public string? ActivityStatus { get; set; }
 
-    public string? Avatar { get; set; }
+    public int TimeLimit { get; set; }
 
-    public string? TokenName { get; set; }
-    
-    public string? TokenVal { get; set; }
+    public int CountLimit { get; set; }
+
+    public sbyte isSuperManager { get; set; }
 }
