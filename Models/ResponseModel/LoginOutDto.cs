@@ -1,4 +1,4 @@
-public class LoginDto
+public class LoginOutDto
 {
 
     public string UserId { get; set; } = null!;

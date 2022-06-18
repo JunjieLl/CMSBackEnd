@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "Anbu/B44mLX64DngUYTeVB4M8GsyPmaVxfYpAb1aVCb3+bAlQIx/lyuOoiOH9SC5D6lBQAk++ClQvFBudoo4ZQ==",
+  "dgSpecHash": "hTu/xZe4WbCK4jM84+P+H8/7B6eSICmzVae/w5Fl+Ao7oVGLb1YwPFcnkrjAcyh4JICBl2/h3DoUS9OjYPu7Uw==",
   "success": true,
   "projectFilePath": "/Users/junjieli/Desktop/github.nosync/CMSBackEnd/CMSBackEnd.csproj",
   "expectedPackageFiles": [
     "/Users/junjieli/.nuget/packages/automapper/11.0.1/automapper.11.0.1.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/11.0.0/automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
+    "/Users/junjieli/.nuget/packages/microsoft.aspnet.cors/5.2.9/microsoft.aspnet.cors.5.2.9.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/microsoft.entityframeworkcore/6.0.5/microsoft.entityframeworkcore.6.0.5.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/microsoft.entityframeworkcore.abstractions/6.0.5/microsoft.entityframeworkcore.abstractions.6.0.5.nupkg.sha512",
@@ -34,5 +35,16 @@
     "/Users/junjieli/.nuget/packages/system.diagnostics.diagnosticsource/6.0.0/system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.Cors 5.2.9' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.Cors",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

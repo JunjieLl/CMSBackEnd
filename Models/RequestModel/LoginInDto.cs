@@ -1,6 +1,6 @@
 namespace CMS;
 
-public class LoginModel
+public class LoginInDto
 {
     public string password { get; set; }
     public string userId { get; set; }

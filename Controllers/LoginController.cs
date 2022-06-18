@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
+using CMS.Business;
 
 namespace CMS.Controllers;
+
 
 [Route("api/")]
 [ApiController]
@@ -11,30 +13,30 @@ public class LoginController : ControllerBase
 
     private readonly IMapper iMapper;
 
-    public LoginController(cmsContext context, IMapper iMapper)
+    private readonly ILoginBusiness iLoginBusiness;
+
+    public LoginController(cmsContext context, IMapper iMapper, ILoginBusiness iLoginBusiness)
     {
         this.context = context;
         this.iMapper = iMapper;
+        this.iLoginBusiness = iLoginBusiness;
     }
 
     [HttpPost("login")]
-    public ActionResult<User> login(LoginModel loginModel)
+    public ActionResult<User> login(LoginInDto loginModel)
     {
-        Console.WriteLine(loginModel.password, loginModel.userId);
-        var user = context.Users.Single(user => user.UserId.Equals(loginModel.userId));
-
-        // var user = await context.Users.FindAsync(loginModel.userId);
+        var user = iLoginBusiness.Login(loginModel);
         if (null == user)
         {
             return NotFound();
         }
 
-        return Ok(iMapper.Map<LoginDto>(user));
+        return Ok(iMapper.Map<LoginOutDto>(user));
     }
 
     [HttpGet("isLogin")]
-    public ActionResult<IsLoginDto> isLogin()
+    public ActionResult<IsLoginOutDto> isLogin()
     {
-        return Ok(new IsLoginDto { userId = "1953474", identity = "学生" });
+        return Ok(new IsLoginOutDto { userId = "1953474", identity = "学生" });
     }
 }

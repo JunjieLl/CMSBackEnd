@@ -5,7 +5,7 @@ public class MappingProfile : Profile
 {
     public MappingProfile()
     {
-        CreateMap<User, LoginDto>();
+        CreateMap<User, LoginOutDto>();
     }
 }
 
