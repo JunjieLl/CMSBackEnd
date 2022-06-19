@@ -7,6 +7,9 @@ public class MappingProfile : Profile
     public MappingProfile()
     {
         CreateMap<User, LoginOutDto>();
+        CreateMap<Room, RoomOutDto>();
+        CreateMap<AddRoomInDto, Room>();
+        CreateMap<Room, RoomPositionOutDto>();
     }
 }
 
