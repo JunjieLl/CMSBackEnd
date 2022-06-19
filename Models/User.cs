@@ -35,7 +35,7 @@ namespace CMS
         /// </summary>
         [Column("activity_status")]
         [StringLength(10)]
-        public string? ActivityStatus { get; set; } = "1";
+        public string? ActivityStatus { get; set; }
         [Column("avatar")]
         [StringLength(255)]
         public string? Avatar { get; set; }

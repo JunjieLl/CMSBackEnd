@@ -11,7 +11,7 @@ namespace CMS
     {
         public CommonUser()
         {
-            Rooms = new HashSet<Room>();
+            Favorites = new HashSet<Favorite>();
         }
 
         [Key]
@@ -25,9 +25,7 @@ namespace CMS
         [ForeignKey("UserId")]
         [InverseProperty("CommonUser")]
         public virtual User User { get; set; } = null!;
-
-        [ForeignKey("UserId")]
-        [InverseProperty("Users")]
-        public virtual ICollection<Room> Rooms { get; set; }
+        [InverseProperty("User")]
+        public virtual ICollection<Favorite> Favorites { get; set; }
     }
 }

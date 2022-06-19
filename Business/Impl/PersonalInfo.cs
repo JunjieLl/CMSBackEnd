@@ -1,4 +1,6 @@
 using CMS.Models;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 namespace CMS.Business;
 
 public class PersonalInfoBusiness : IPersonalInfoBusiness
@@ -139,7 +141,24 @@ public class PersonalInfoBusiness : IPersonalInfoBusiness
         return 1;
     }
 
-    public int grant(GrantInDto grantInDto){
-        
+    public void grant(GrantInDto grantInDto)
+    {
+        var superList = context.Manages.Where(m => m.UserId.Equals(grantInDto.superManagerId)).ToList();
+        var managerList = context.Manages.Where(m => m.UserId.Equals(grantInDto.managerId)).ToList();
+
+        HashSet<string> rooms = new HashSet<string>();
+        managerList.ForEach(r => rooms.Add(r.RoomId));
+        superList.ForEach(r =>
+        {
+            if (!rooms.Contains(r.RoomId))
+            {
+                Manage manage = new Manage();
+                manage.UserId = grantInDto.managerId;
+                manage.RoomId = r.RoomId;
+                context.Manages.Add(manage);
+            }
+        });
+
+        context.SaveChanges();
     }
 }

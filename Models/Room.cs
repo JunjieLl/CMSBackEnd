@@ -12,8 +12,8 @@ namespace CMS
         public Room()
         {
             Activities = new HashSet<Activity>();
-            Users = new HashSet<CommonUser>();
-            UsersNavigation = new HashSet<RoomManager>();
+            Favorites = new HashSet<Favorite>();
+            Manages = new HashSet<Manage>();
         }
 
         [Key]
@@ -40,12 +40,9 @@ namespace CMS
 
         [InverseProperty("Room")]
         public virtual ICollection<Activity> Activities { get; set; }
-
-        [ForeignKey("RoomId")]
-        [InverseProperty("Rooms")]
-        public virtual ICollection<CommonUser> Users { get; set; }
-        [ForeignKey("RoomId")]
-        [InverseProperty("Rooms")]
-        public virtual ICollection<RoomManager> UsersNavigation { get; set; }
+        [InverseProperty("Room")]
+        public virtual ICollection<Favorite> Favorites { get; set; }
+        [InverseProperty("Room")]
+        public virtual ICollection<Manage> Manages { get; set; }
     }
 }

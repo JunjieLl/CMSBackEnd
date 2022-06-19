@@ -12,7 +12,7 @@ namespace CMS
         public RoomManager()
         {
             Activities = new HashSet<Activity>();
-            Rooms = new HashSet<Room>();
+            Manages = new HashSet<Manage>();
         }
 
         [Key]
@@ -26,9 +26,7 @@ namespace CMS
         public virtual User User { get; set; } = null!;
         [InverseProperty("ManagerUser")]
         public virtual ICollection<Activity> Activities { get; set; }
-
-        [ForeignKey("UserId")]
-        [InverseProperty("UsersNavigation")]
-        public virtual ICollection<Room> Rooms { get; set; }
+        [InverseProperty("User")]
+        public virtual ICollection<Manage> Manages { get; set; }
     }
 }

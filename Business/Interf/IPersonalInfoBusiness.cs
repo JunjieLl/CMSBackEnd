@@ -15,5 +15,5 @@ public interface IPersonalInfoBusiness
 
     public Task<int> addUser(PersonalInfoOutDto personalInfo);
 
-    public int grant(GrantInDto grantInDto);
+    public void grant(GrantInDto grantInDto);
 }

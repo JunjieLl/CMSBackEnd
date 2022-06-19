@@ -76,7 +76,9 @@ public class PersonalInformationController : ControllerBase
     }
 
     [HttpPut("Grant")]
-    public IActionResult grant(GrantInDto grantInDto){
-        
+    public IActionResult grant(GrantInDto grantInDto)
+    {
+        personalInfoBusiness.grant(grantInDto);
+        return NoContent();
     }
 }

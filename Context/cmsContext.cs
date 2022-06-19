@@ -18,6 +18,8 @@ namespace CMS
 
         public virtual DbSet<Activity> Activities { get; set; } = null!;
         public virtual DbSet<CommonUser> CommonUsers { get; set; } = null!;
+        public virtual DbSet<Favorite> Favorites { get; set; } = null!;
+        public virtual DbSet<Manage> Manages { get; set; } = null!;
         public virtual DbSet<ModifyRecord> ModifyRecords { get; set; } = null!;
         public virtual DbSet<Room> Rooms { get; set; } = null!;
         public virtual DbSet<RoomManager> RoomManagers { get; set; } = null!;
@@ -70,25 +72,50 @@ namespace CMS
                     .WithOne(p => p.CommonUser)
                     .HasForeignKey<CommonUser>(d => d.UserId)
                     .HasConstraintName("common_user_ibfk_1");
+            });
 
-                entity.HasMany(d => d.Rooms)
-                    .WithMany(p => p.Users)
-                    .UsingEntity<Dictionary<string, object>>(
-                        "Favorite",
-                        l => l.HasOne<Room>().WithMany().HasForeignKey("RoomId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("favorite_ibfk_2"),
-                        r => r.HasOne<CommonUser>().WithMany().HasForeignKey("UserId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("favorite_ibfk_1"),
-                        j =>
-                        {
-                            j.HasKey("UserId", "RoomId").HasName("PRIMARY").HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
+            modelBuilder.Entity<Favorite>(entity =>
+            {
+                entity.HasKey(e => new { e.UserId, e.RoomId })
+                    .HasName("PRIMARY")
+                    .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
 
-                            j.ToTable("favorite");
+                entity.Property(e => e.RoomId).IsFixedLength();
 
-                            j.HasIndex(new[] { "RoomId" }, "room_id");
+                entity.Property(e => e.Placeholder).HasComment("占位");
 
-                            j.IndexerProperty<string>("UserId").HasColumnName("user_id");
+                entity.HasOne(d => d.Room)
+                    .WithMany(p => p.Favorites)
+                    .HasForeignKey(d => d.RoomId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("favorite_ibfk_2");
 
-                            j.IndexerProperty<string>("RoomId").HasMaxLength(10).HasColumnName("room_id").IsFixedLength();
-                        });
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Favorites)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("favorite_ibfk_1");
+            });
+
+            modelBuilder.Entity<Manage>(entity =>
+            {
+                entity.HasKey(e => new { e.UserId, e.RoomId })
+                    .HasName("PRIMARY")
+                    .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
+
+                entity.Property(e => e.RoomId).IsFixedLength();
+
+                entity.Property(e => e.Placeholder).HasComment("占位符");
+
+                entity.HasOne(d => d.Room)
+                    .WithMany(p => p.Manages)
+                    .HasForeignKey(d => d.RoomId)
+                    .HasConstraintName("manage_ibfk_2");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Manages)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("manage_ibfk_1");
             });
 
             modelBuilder.Entity<ModifyRecord>(entity =>
@@ -127,25 +154,6 @@ namespace CMS
                     .WithOne(p => p.RoomManager)
                     .HasForeignKey<RoomManager>(d => d.UserId)
                     .HasConstraintName("room_manager_ibfk_1");
-
-                entity.HasMany(d => d.Rooms)
-                    .WithMany(p => p.UsersNavigation)
-                    .UsingEntity<Dictionary<string, object>>(
-                        "Manage",
-                        l => l.HasOne<Room>().WithMany().HasForeignKey("RoomId").HasConstraintName("manage_ibfk_2"),
-                        r => r.HasOne<RoomManager>().WithMany().HasForeignKey("UserId").HasConstraintName("manage_ibfk_1"),
-                        j =>
-                        {
-                            j.HasKey("UserId", "RoomId").HasName("PRIMARY").HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
-
-                            j.ToTable("manage");
-
-                            j.HasIndex(new[] { "RoomId" }, "room_id");
-
-                            j.IndexerProperty<string>("UserId").HasColumnName("user_id");
-
-                            j.IndexerProperty<string>("RoomId").HasMaxLength(10).HasColumnName("room_id").IsFixedLength();
-                        });
             });
 
             modelBuilder.Entity<User>(entity =>
