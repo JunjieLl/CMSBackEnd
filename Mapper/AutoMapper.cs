@@ -10,6 +10,7 @@ public class MappingProfile : Profile
         CreateMap<Room, RoomOutDto>();
         CreateMap<AddRoomInDto, Room>();
         CreateMap<Room, RoomPositionOutDto>();
+        CreateMap<FavoriteInDto, Favorite>();
     }
 }
 

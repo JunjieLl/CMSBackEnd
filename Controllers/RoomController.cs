@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using CMS.Models;
 using CMS.Business;
-using AutoMapper;
+
 
 namespace CMS.Controllers;
 
@@ -80,4 +80,9 @@ public class RoomController : ControllerBase
     {
         return roomBusiness.getSingleRoomWithFavorite(userId, roomId);
     }
+
+    // [HttpGet("free")]
+    // public ActionResult<RoomOutDto> getFreeRooms([FromBody] FreeRoomInFto freeRoomInFto){
+        
+    // }
 }

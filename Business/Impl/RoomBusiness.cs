@@ -180,4 +180,8 @@ public class RoomBusiness : IRoomBusiness
         }
         return roomOutDto;
     }
+
+    // public List<Room> getFreeRooms(DateTime startTime, DateTime endTime){
+
+    // }
 }

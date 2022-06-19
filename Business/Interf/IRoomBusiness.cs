@@ -20,4 +20,6 @@ public interface IRoomBusiness
     public List<RoomOutDto> getRoomWithFavorite(string userId);
 
     public RoomOutDto getSingleRoomWithFavorite(string userId, string roomId);
+
+    // public List<Room> getFreeRooms(DateTime startTime, DateTime endTime);
 }
