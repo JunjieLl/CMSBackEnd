@@ -24,6 +24,7 @@ builder.Services.AddScoped<IPersonalInfoBusiness, PersonalInfoBusiness>();
 builder.Services.AddScoped<IRoomBusiness, RoomBusiness>();
 builder.Services.AddScoped<IFavoriteBusiness, FavoriteBusiness>();
 builder.Services.AddScoped<IActivityBusiness, ActivityBusiness>();
+builder.Services.AddScoped<IModifyBusiness, ModifyBusiness>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
