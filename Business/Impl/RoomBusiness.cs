@@ -181,7 +181,104 @@ public class RoomBusiness : IRoomBusiness
         return roomOutDto;
     }
 
-    // public List<Room> getFreeRooms(DateTime startTime, DateTime endTime){
+    public List<Room> getFreeRooms(DateTime startTime, DateTime endTime)
+    {
+        List<Activity> activities = context.Activities.ToList();
+        List<RoomOutDto> allRooms = getAllRoom();
+        List<Room> rooms = new List<Room>();
+        foreach (var roomGetDto in allRooms)
+        {
+            if (activities.All(a =>
+            !a.RoomId.Equals(roomGetDto.RoomId)
+            || a.StartTime > endTime
+            || startTime > (a.StartTime.AddMinutes(a.Duration))))
+            {
+                Room room = new Room();
+                room.RoomId = roomGetDto.RoomId;
+                room.RoomName = roomGetDto.RoomName;
+                room.Building = roomGetDto.Building;
+                room.Floor = roomGetDto.Floor;
+                rooms.Add(room);
+            }
+        }
+        return rooms;
+    }
 
-    // }
+    public FreeRoomOutDto generateRoomGetAllDto(List<Room> rooms)
+    {
+        List<string> roomIds = rooms.Select(r => r.RoomId).ToList();
+        List<FreeRoomsOptionsGetBuildingDto> options = new List<FreeRoomsOptionsGetBuildingDto>();
+        FreeRoomOutDto freeRoomOutDto = new FreeRoomOutDto();
+        foreach (var room in rooms)
+        {
+            int i = 0;
+            for (i = 0; i < options.Count; ++i)
+            {
+                if (options[i].Value.Equals(room.Building))
+                {
+                    int j = 0;
+                    for (j = 0; j < options[i].Children.Count; ++j)
+                    {
+                        if (options[i].Children[j].Value.Equals(room.Floor))
+                        {
+                            int k = 0;
+                            for (k = 0; k < options[i].Children[j].Children.Count; ++k)
+                            {
+                                if (options[i].Children[j].Children[k].Value.Equals(room.RoomId))
+                                {
+                                    break;
+                                }
+                            }
+                            if (k == options[i].Children[j].Children.Count)
+                            {
+                                var newRoom = new FreeRoomsOptionsGetRoomDto();
+                                newRoom.Label = room.RoomName;
+                                newRoom.Value = room.RoomId;
+                                options[i].Children[j].Children.Add(newRoom);
+                            }
+                            break;
+                        }
+                    }
+                    if (j == options[i].Children.Count)
+                    {
+                        var newFloor = new FreeRoomsOptionsGetFloorDto();
+                        newFloor.Label = room.Floor;
+                        newFloor.Value = room.Floor;
+                        var newRoom = new FreeRoomsOptionsGetRoomDto();
+                        newRoom.Label = room.RoomName;
+                        newRoom.Value = room.RoomId;
+                        List<FreeRoomsOptionsGetRoomDto> newRooms = new List<FreeRoomsOptionsGetRoomDto>();
+                        newRooms.Add(newRoom);
+                        newFloor.Children = newRooms;
+                        options[i].Children.Add(newFloor);
+                    }
+                    break;
+                }
+
+            }
+            if (i == options.Count)
+            {
+                var newBuilding = new FreeRoomsOptionsGetBuildingDto();
+                newBuilding.Value = room.Building;
+                newBuilding.Label = room.Building;
+                var newFloor = new FreeRoomsOptionsGetFloorDto();
+                newFloor.Label = room.Floor;
+                newFloor.Value = room.Floor;
+                var newRoom = new FreeRoomsOptionsGetRoomDto();
+                newRoom.Value = room.RoomId;
+                newRoom.Label = room.RoomName;
+                List<FreeRoomsOptionsGetRoomDto> newRooms = new List<FreeRoomsOptionsGetRoomDto>();
+                newRooms.Add(newRoom);
+                newFloor.Children = newRooms;
+                List<FreeRoomsOptionsGetFloorDto> newFloors = new List<FreeRoomsOptionsGetFloorDto>();
+                newFloors.Add(newFloor);
+                newBuilding.Children = newFloors;
+                options.Add(newBuilding);
+
+            }
+        }
+        freeRoomOutDto.Rooms = roomIds;
+        freeRoomOutDto.Options = options;
+        return freeRoomOutDto;
+    }
 }

@@ -81,8 +81,11 @@ public class RoomController : ControllerBase
         return roomBusiness.getSingleRoomWithFavorite(userId, roomId);
     }
 
-    // [HttpGet("free")]
-    // public ActionResult<RoomOutDto> getFreeRooms([FromBody] FreeRoomInFto freeRoomInFto){
-        
-    // }
+    [HttpPost("free")]
+    public ActionResult<FreeRoomOutDto> getFreeRooms([FromBody] FreeRoomInFto freeRoomInFto)
+    {
+        var rooms = roomBusiness.getFreeRooms(freeRoomInFto.StartTime, freeRoomInFto.EndTime);
+        var freeRoomGetAllDto = roomBusiness.generateRoomGetAllDto(rooms);
+        return freeRoomGetAllDto;
+    }
 }
