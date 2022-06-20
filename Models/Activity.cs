@@ -1,5 +1,8 @@
-﻿using System;
+﻿using System.Text.Json.Serialization;
+using CMS.CONFIG;
+using System;
 using System.Collections.Generic;
+
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
@@ -28,6 +31,7 @@ namespace CMS
         [StringLength(255)]
         public string ActivityStatus { get; set; } = null!;
         [Column("start_time", TypeName = "datetime")]
+        [JsonConverter(typeof(DateTimeConverter))]
         public DateTime StartTime { get; set; }
         [Column("duration")]
         public int Duration { get; set; }

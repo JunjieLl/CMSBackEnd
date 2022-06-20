@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+using CMS.CONFIG;
 namespace CMS.Models;
 
 public class ActivitiesGetDto
@@ -8,6 +10,7 @@ public class ActivitiesGetDto
 
     public string ActivityStatus { get; set; } = null!;
 
+    [JsonConverter(typeof(DateTimeConverter))]
     public DateTime StartTime { get; set; }
 
     public int Duration { get; set; }
@@ -18,7 +21,7 @@ public class ActivitiesGetDto
     public sbyte PoliticallyRelevant { get; set; } = 0;
 
 
-    public string? PoliticalReview { get; set; } 
+    public string? PoliticalReview { get; set; }
 
 
     public string RoomId { get; set; } = null!;

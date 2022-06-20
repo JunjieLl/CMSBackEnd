@@ -12,6 +12,8 @@ public class MappingProfile : Profile
         CreateMap<Room, RoomPositionOutDto>();
         CreateMap<FavoriteInDto, Favorite>();
         CreateMap<Activity, ActivitiesGetDto>();
+        CreateMap<ModifyRecordDto, ModifyRecord>();
+        CreateMap<PeriodActivityPostDto, ActivityPostDto>();
     }
 }
 
