@@ -184,7 +184,7 @@ public class PersonalInfoBusiness : IPersonalInfoBusiness
         {
             code += (random.Next() % 10).ToString();
         }
-        string content = $"Hello, {userInfo.UserName}! Your code is {code}.";
+        string content = $"Hello, {userInfo.UserName}! Your code is {code}. The verification code is valid within 5 minutes.";
 
         try
         {
