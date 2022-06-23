@@ -1,4 +1,6 @@
+using CMS.CONFIG;
 
+using System.Text.Json.Serialization;
 namespace CMS.Models;
 
 public class AddRoomInDto
@@ -7,6 +9,7 @@ public class AddRoomInDto
 
     public string Building { get; set; } = null!;
 
+    [JsonConverter(typeof(FloorConverter))]
     public string Floor { get; set; } = null!;
 
     public string? RoomDescription { get; set; }

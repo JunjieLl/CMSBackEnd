@@ -51,6 +51,11 @@ public class ActivityBusiness : IActivityBusiness
                 {
                     activitiesGetDto.ActivityStatus = "待反馈";
                 }
+                ModifyRecord? modifyRecord = context.ModifyRecords.SingleOrDefault(m => m.ActivityId.Equals(a.ActivityId));
+                if (null != modifyRecord)
+                {
+                    activitiesGetDto.Reason = modifyRecord.Reason;
+                }
             }
             else if (a.ActivityStatus.Equals("被驳回"))
             {
@@ -96,8 +101,8 @@ public class ActivityBusiness : IActivityBusiness
         {
             Id = a.ActivityId,
             Title = a.ActivityName,
-            Start = (a.StartTime.AddHours(8)).ToString("yyyy'-'MM'-'dd'T'HH':'mm"),
-            End = ((a.StartTime.AddHours(8).AddMinutes(a.Duration))).ToString("yyyy'-'MM'-'dd'T'HH':'mm")
+            Start = (a.StartTime).ToString("yyyy'-'MM'-'dd'T'HH':'mm"),
+            End = ((a.StartTime.AddMinutes(a.Duration))).ToString("yyyy'-'MM'-'dd'T'HH':'mm")
         }).ToList();
         return roomActivityGetDtos;
     }
@@ -204,5 +209,5 @@ public class ActivityBusiness : IActivityBusiness
         return 1;
     }
 
-   
+
 }

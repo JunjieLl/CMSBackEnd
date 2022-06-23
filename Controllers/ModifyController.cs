@@ -31,7 +31,7 @@ public class ModifyController : ControllerBase
         return Ok();
     }
 
-    [HttpPost]
+    [HttpPost("reject")]
     public IActionResult rejectActivity(ModifyRecordDto modifyRecordDto)
     {
         int res = modifyBusiness.rejectActivity(modifyRecordDto);

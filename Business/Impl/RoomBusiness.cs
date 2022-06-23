@@ -159,6 +159,16 @@ public class RoomBusiness : IRoomBusiness
             }
         });
 
+        User? user = context.Users.SingleOrDefault(u => u.UserId.Equals(userId) && u.Identity.Equals("管理员"));
+        if (user != null)
+        {
+            return context.Manages.Where(m => m.UserId.Equals(userId))
+            .ToList()
+            .Join(roomOutDtos, m => m.RoomId, r => r.RoomId, (_, r) => r)
+            .ToList();
+
+        }
+
         return roomOutDtos;
     }
 

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
+using CMS.CONFIG;
+
+using System.Text.Json.Serialization;
 
 namespace CMS
 {
@@ -26,6 +29,8 @@ namespace CMS
         [Column("building")]
         [StringLength(10)]
         public string Building { get; set; } = null!;
+
+        [JsonConverter(typeof(FloorConverter))]
         [Column("floor")]
         [StringLength(10)]
         public string Floor { get; set; } = null!;
