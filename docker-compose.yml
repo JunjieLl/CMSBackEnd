@@ -1,0 +1,6 @@
+
+services:
+  myRedis:
+   image: redis
+   ports:
+    - 35229:6379

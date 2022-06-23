@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "1J+FO+0lhz/fO1o6nEwncwbEEtS/f1Q/i2rEtYsQRa1k/6dSU32hS7onnwxNgih7Ul50NZXBgKHlvL13O4cFfQ==",
+  "dgSpecHash": "/+gXukuH8+kcexL0vlirHveOYw0MVkP2J7UKL3BLCdK9LgTM9GiPhj/9KlCO3/W+IS+EbQc3kbTgnd7/KookKw==",
   "success": true,
   "projectFilePath": "/Users/junjieli/Desktop/github.nosync/CMSBackEnd/CMSBackEnd.csproj",
   "expectedPackageFiles": [
@@ -34,6 +34,10 @@
     "/Users/junjieli/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/mysqlconnector/2.1.2/mysqlconnector.2.1.2.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/pomelo.entityframeworkcore.mysql/6.0.1/pomelo.entityframeworkcore.mysql.6.0.1.nupkg.sha512",
+    "/Users/junjieli/.nuget/packages/servicestack.common/6.1.0/servicestack.common.6.1.0.nupkg.sha512",
+    "/Users/junjieli/.nuget/packages/servicestack.interfaces/6.1.0/servicestack.interfaces.6.1.0.nupkg.sha512",
+    "/Users/junjieli/.nuget/packages/servicestack.redis/6.1.0/servicestack.redis.6.1.0.nupkg.sha512",
+    "/Users/junjieli/.nuget/packages/servicestack.text/6.1.0/servicestack.text.6.1.0.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/swashbuckle.aspnetcore/6.2.3/swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/swashbuckle.aspnetcore.swagger/6.2.3/swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
@@ -41,6 +45,7 @@
     "/Users/junjieli/.nuget/packages/system.collections.immutable/6.0.0/system.collections.immutable.6.0.0.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/system.diagnostics.diagnosticsource/6.0.0/system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/system.identitymodel.tokens.jwt/6.20.0/system.identitymodel.tokens.jwt.6.20.0.nupkg.sha512",
+    "/Users/junjieli/.nuget/packages/system.memory/4.5.4/system.memory.4.5.4.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/system.security.cryptography.cng/4.5.0/system.security.cryptography.cng.4.5.0.nupkg.sha512"
   ],

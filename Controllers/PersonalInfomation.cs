@@ -12,7 +12,8 @@ public class PersonalInformationController : ControllerBase
 
     private readonly IPersonalInfoBusiness personalInfoBusiness;
 
-    public PersonalInformationController(IPersonalInfoBusiness personalInfoBusiness)
+
+    public PersonalInformationController(IPersonalInfoBusiness personalInfoBusiness, IEmailBusiness emailBusiness)
     {
         this.personalInfoBusiness = personalInfoBusiness;
     }
@@ -79,6 +80,28 @@ public class PersonalInformationController : ControllerBase
     public IActionResult grant(GrantInDto grantInDto)
     {
         personalInfoBusiness.grant(grantInDto);
+        return NoContent();
+    }
+
+    [HttpGet("Email")]
+    public ActionResult<string> sendEmail(string userId)
+    {
+        string? res = personalInfoBusiness.sendEmail(userId);
+        if (res == null)
+        {
+            return NotFound();
+        }
+        return res;
+    }
+
+    [HttpPut("UserPassword")]
+    public IActionResult modifyPassword(FixPasswordDto fixPasswordDto)
+    {
+        int res = personalInfoBusiness.modifyPassword(fixPasswordDto);
+        if (res == -1)
+        {
+            return NotFound();
+        }
         return NoContent();
     }
 }

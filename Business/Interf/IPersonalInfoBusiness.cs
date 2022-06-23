@@ -16,4 +16,8 @@ public interface IPersonalInfoBusiness
     public Task<int> addUser(PersonalInfoOutDto personalInfo);
 
     public void grant(GrantInDto grantInDto);
+
+    public string sendEmail(string userId);
+
+    public int modifyPassword(FixPasswordDto fixPasswordDto);
 }

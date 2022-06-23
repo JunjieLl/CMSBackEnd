@@ -14,6 +14,7 @@
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.6",
           "Microsoft.EntityFrameworkCore.Design": "6.0.5",
           "Pomelo.EntityFrameworkCore.MySql": "6.0.1",
+          "ServiceStack.Redis": "6.1.0",
           "Swashbuckle.AspNetCore": "6.2.3",
           "System.IdentityModel.Tokens.Jwt": "6.20.0"
         },
@@ -272,6 +273,52 @@
           }
         }
       },
+      "ServiceStack.Common/6.1.0": {
+        "dependencies": {
+          "ServiceStack.Interfaces": "6.1.0",
+          "ServiceStack.Text": "6.1.0",
+          "System.Memory": "4.5.4"
+        },
+        "runtime": {
+          "lib/net6.0/ServiceStack.Common.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.1.0.0"
+          }
+        }
+      },
+      "ServiceStack.Interfaces/6.1.0": {
+        "runtime": {
+          "lib/net6.0/ServiceStack.Interfaces.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.1.0.0"
+          }
+        }
+      },
+      "ServiceStack.Redis/6.1.0": {
+        "dependencies": {
+          "ServiceStack.Common": "6.1.0",
+          "ServiceStack.Interfaces": "6.1.0",
+          "ServiceStack.Text": "6.1.0"
+        },
+        "runtime": {
+          "lib/net6.0/ServiceStack.Redis.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.1.0.0"
+          }
+        }
+      },
+      "ServiceStack.Text/6.1.0": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0",
+          "System.Memory": "4.5.4"
+        },
+        "runtime": {
+          "lib/net6.0/ServiceStack.Text.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.1.0.0"
+          }
+        }
+      },
       "Swashbuckle.AspNetCore/6.2.3": {
         "dependencies": {
           "Microsoft.Extensions.ApiDescription.Server": "3.0.0",
@@ -332,6 +379,7 @@
           }
         }
       },
+      "System.Memory/4.5.4": {},
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
       "System.Security.Cryptography.Cng/4.5.0": {}
     }
@@ -552,6 +600,34 @@
       "path": "pomelo.entityframeworkcore.mysql/6.0.1",
       "hashPath": "pomelo.entityframeworkcore.mysql.6.0.1.nupkg.sha512"
     },
+    "ServiceStack.Common/6.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GHT46Vt4OmwXlgM8XIVbLyWajKvLwvNdCl29GL3Jy/ZQP0+35bm8ZPcrpsBivWig4D5i0+6fOkWcdruJGbu1NQ==",
+      "path": "servicestack.common/6.1.0",
+      "hashPath": "servicestack.common.6.1.0.nupkg.sha512"
+    },
+    "ServiceStack.Interfaces/6.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-U5EPMxVzMFXoJxpwUUyD+AZ7CLCAlA6WwWF9+MlQIf3EYjzXAK+ApYwcBEc6ekj6mBxmlE5/w0Q8uGlPXFLiNw==",
+      "path": "servicestack.interfaces/6.1.0",
+      "hashPath": "servicestack.interfaces.6.1.0.nupkg.sha512"
+    },
+    "ServiceStack.Redis/6.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5RZ0ZjzUe2LwVnOT4LsnPujsrIrrDyraiLdkLhQtZQNl6OXnzHPts/34PgL9rbzk8wPkqqzwzdz/sUfA2M3OGg==",
+      "path": "servicestack.redis/6.1.0",
+      "hashPath": "servicestack.redis.6.1.0.nupkg.sha512"
+    },
+    "ServiceStack.Text/6.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nR9Gf/Z0XEStB4X/+u/tNyGnyXsTAvoLxau4qtjy83pRklBB1QZ2J/2YKTeMQ7xfV8gCnBPLJAfGi5AZmIQ5+A==",
+      "path": "servicestack.text/6.1.0",
+      "hashPath": "servicestack.text.6.1.0.nupkg.sha512"
+    },
     "Swashbuckle.AspNetCore/6.2.3": {
       "type": "package",
       "serviceable": true,
@@ -600,6 +676,13 @@
       "sha512": "sha512-yallJBcQCF34rkf4Ebakou/gCT74XtlgvR8q3M96S1uP9X/XgLp9sjQ6wJRewYLeBYGgi4o5WSY/XaI9aQjRXw==",
       "path": "system.identitymodel.tokens.jwt/6.20.0",
       "hashPath": "system.identitymodel.tokens.jwt.6.20.0.nupkg.sha512"
+    },
+    "System.Memory/4.5.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1MbJTHS1lZ4bS4FmsJjnuGJOu88ZzTT2rLvrhW7Ygic+pC0NWA+3hgAen0HRdsocuQXCkUTdFn9yHJJhsijDXw==",
+      "path": "system.memory/4.5.4",
+      "hashPath": "system.memory.4.5.4.nupkg.sha512"
     },
     "System.Runtime.CompilerServices.Unsafe/6.0.0": {
       "type": "package",

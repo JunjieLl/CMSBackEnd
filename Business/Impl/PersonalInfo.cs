@@ -1,14 +1,19 @@
 using CMS.Models;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using ServiceStack.Redis;
 namespace CMS.Business;
 
 public class PersonalInfoBusiness : IPersonalInfoBusiness
 {
     private readonly cmsContext context;
-    public PersonalInfoBusiness(cmsContext context)
+    private readonly IEmailBusiness emailBusiness;
+    private readonly RedisClient redisClient;
+    public PersonalInfoBusiness(cmsContext context, IEmailBusiness emailBusiness, RedisClient redisClient)
     {
         this.context = context;
+        this.emailBusiness = emailBusiness;
+        this.redisClient = redisClient;
     }
 
     public PersonalInfoOutDto getPersonalInformation(string userId)
@@ -160,5 +165,53 @@ public class PersonalInfoBusiness : IPersonalInfoBusiness
         });
 
         context.SaveChanges();
+    }
+
+    public string? sendEmail(string userId)
+    {
+        var userInfo = context.Users.Where(u => userId.Equals(u.UserId))
+        .Select(u => new { u.EmailAddress, u.UserName })
+        .SingleOrDefault();
+        if (userInfo == null)
+        {
+            return null;
+        }
+
+
+        string code = "";
+        Random random = new Random();
+        for (int i = 0; i < 6; ++i)
+        {
+            code += (random.Next() % 10).ToString();
+        }
+        string content = $"Hello, {userInfo.UserName}! Your code is {code}.";
+
+        try
+        {
+            emailBusiness.sendEMail(userInfo.EmailAddress, "CMS Verification", content);
+            redisClient.Add(userId, code, TimeSpan.FromMinutes(5));
+            return userInfo.EmailAddress;
+        }
+        catch
+        {
+            return null;
+        }
+    }
+
+
+    public int modifyPassword(FixPasswordDto fixPasswordDto)
+    {
+        if (redisClient.ContainsKey(fixPasswordDto.userId) && redisClient.Get<string>(fixPasswordDto.userId).Equals(fixPasswordDto.verificationCode))
+        {
+            User? user = context.Users.SingleOrDefault(u => fixPasswordDto.userId.Equals(u.UserId));
+            if (user == null)
+            {
+                return -1;
+            }
+            user.Password = fixPasswordDto.password;
+            context.SaveChanges();
+            return 1;
+        }
+        return -1;
     }
 }

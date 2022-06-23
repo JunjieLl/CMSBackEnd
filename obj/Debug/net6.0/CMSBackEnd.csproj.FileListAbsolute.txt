@@ -44,3 +44,7 @@
 /Users/junjieli/Desktop/github.nosync/CMSBackEnd/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 /Users/junjieli/Desktop/github.nosync/CMSBackEnd/bin/Debug/net6.0/Microsoft.IdentityModel.Tokens.dll
 /Users/junjieli/Desktop/github.nosync/CMSBackEnd/bin/Debug/net6.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/junjieli/Desktop/github.nosync/CMSBackEnd/bin/Debug/net6.0/ServiceStack.Common.dll
+/Users/junjieli/Desktop/github.nosync/CMSBackEnd/bin/Debug/net6.0/ServiceStack.Interfaces.dll
+/Users/junjieli/Desktop/github.nosync/CMSBackEnd/bin/Debug/net6.0/ServiceStack.Redis.dll
+/Users/junjieli/Desktop/github.nosync/CMSBackEnd/bin/Debug/net6.0/ServiceStack.Text.dll

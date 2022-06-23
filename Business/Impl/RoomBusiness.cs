@@ -48,7 +48,7 @@ public class RoomBusiness : IRoomBusiness
             var activitys = context.Activities.Where(a => a.RoomId.Equals(roomOutDto.RoomId)).ToList();
             foreach (var a in activitys)
             {
-                if (a.StartTime <= dateTime && a.StartTime + TimeSpan.FromMinutes(a.Duration) >= dateTime)
+                if (a.ActivityStatus.Equals("待举办") && a.StartTime <= dateTime && a.StartTime + TimeSpan.FromMinutes(a.Duration) >= dateTime)
                 {
                     roomOutDto.State = "忙碌";
                     break;
@@ -133,7 +133,7 @@ public class RoomBusiness : IRoomBusiness
             DateTime curTime = DateTime.Now;
             foreach (var a in activities)
             {
-                if (a.StartTime <= curTime && a.StartTime + TimeSpan.FromMinutes(a.Duration) >= curTime)
+                if (a.ActivityStatus.Equals("待举办") && a.StartTime <= curTime && a.StartTime + TimeSpan.FromMinutes(a.Duration) >= curTime)
                 {
                     roomOutDto.State = "忙碌";
                     break;
@@ -178,7 +178,7 @@ public class RoomBusiness : IRoomBusiness
 
         var activities = context.Activities.Where(a => a.RoomId.Equals(roomId)).ToList();
         DateTime curTime = DateTime.Now;
-        if (activities.Any(a => a.StartTime <= curTime && a.StartTime + TimeSpan.FromMinutes(a.Duration) >= curTime))
+        if (activities.Any(a => a.ActivityStatus.Equals("待举办") && a.StartTime <= curTime && a.StartTime + TimeSpan.FromMinutes(a.Duration) >= curTime))
         {
             roomOutDto.State = "忙碌";
         }
@@ -200,8 +200,9 @@ public class RoomBusiness : IRoomBusiness
         {
             if (activities.All(a =>
             !a.RoomId.Equals(roomGetDto.RoomId)
+            || !a.ActivityStatus.Equals("待举办")
             || a.StartTime > endTime
-            || startTime > (a.StartTime.AddMinutes(a.Duration))))
+            || startTime > a.StartTime.AddMinutes(a.Duration)))
             {
                 Room room = new Room();
                 room.RoomId = roomGetDto.RoomId;
