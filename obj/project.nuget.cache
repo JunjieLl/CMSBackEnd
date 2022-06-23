@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "hTu/xZe4WbCK4jM84+P+H8/7B6eSICmzVae/w5Fl+Ao7oVGLb1YwPFcnkrjAcyh4JICBl2/h3DoUS9OjYPu7Uw==",
+  "dgSpecHash": "1J+FO+0lhz/fO1o6nEwncwbEEtS/f1Q/i2rEtYsQRa1k/6dSU32hS7onnwxNgih7Ul50NZXBgKHlvL13O4cFfQ==",
   "success": true,
   "projectFilePath": "/Users/junjieli/Desktop/github.nosync/CMSBackEnd/CMSBackEnd.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "/Users/junjieli/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/11.0.0/automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/microsoft.aspnet.cors/5.2.9/microsoft.aspnet.cors.5.2.9.nupkg.sha512",
+    "/Users/junjieli/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/6.0.6/microsoft.aspnetcore.authentication.jwtbearer.6.0.6.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/microsoft.entityframeworkcore/6.0.5/microsoft.entityframeworkcore.6.0.5.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/microsoft.entityframeworkcore.abstractions/6.0.5/microsoft.entityframeworkcore.abstractions.6.0.5.nupkg.sha512",
@@ -24,6 +25,12 @@
     "/Users/junjieli/.nuget/packages/microsoft.extensions.logging.abstractions/6.0.0/microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/microsoft.extensions.options/6.0.0/microsoft.extensions.options.6.0.0.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/microsoft.extensions.primitives/6.0.0/microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "/Users/junjieli/.nuget/packages/microsoft.identitymodel.abstractions/6.20.0/microsoft.identitymodel.abstractions.6.20.0.nupkg.sha512",
+    "/Users/junjieli/.nuget/packages/microsoft.identitymodel.jsonwebtokens/6.20.0/microsoft.identitymodel.jsonwebtokens.6.20.0.nupkg.sha512",
+    "/Users/junjieli/.nuget/packages/microsoft.identitymodel.logging/6.20.0/microsoft.identitymodel.logging.6.20.0.nupkg.sha512",
+    "/Users/junjieli/.nuget/packages/microsoft.identitymodel.protocols/6.10.0/microsoft.identitymodel.protocols.6.10.0.nupkg.sha512",
+    "/Users/junjieli/.nuget/packages/microsoft.identitymodel.protocols.openidconnect/6.10.0/microsoft.identitymodel.protocols.openidconnect.6.10.0.nupkg.sha512",
+    "/Users/junjieli/.nuget/packages/microsoft.identitymodel.tokens/6.20.0/microsoft.identitymodel.tokens.6.20.0.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/mysqlconnector/2.1.2/mysqlconnector.2.1.2.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/pomelo.entityframeworkcore.mysql/6.0.1/pomelo.entityframeworkcore.mysql.6.0.1.nupkg.sha512",
@@ -33,7 +40,9 @@
     "/Users/junjieli/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/system.collections.immutable/6.0.0/system.collections.immutable.6.0.0.nupkg.sha512",
     "/Users/junjieli/.nuget/packages/system.diagnostics.diagnosticsource/6.0.0/system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
-    "/Users/junjieli/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    "/Users/junjieli/.nuget/packages/system.identitymodel.tokens.jwt/6.20.0/system.identitymodel.tokens.jwt.6.20.0.nupkg.sha512",
+    "/Users/junjieli/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "/Users/junjieli/.nuget/packages/system.security.cryptography.cng/4.5.0/system.security.cryptography.cng.4.5.0.nupkg.sha512"
   ],
   "logs": [
     {

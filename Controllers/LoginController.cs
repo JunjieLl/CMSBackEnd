@@ -2,6 +2,10 @@ using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 using CMS.Business;
 using CMS.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication;
+using System.IdentityModel.Tokens.Jwt;
+
 
 namespace CMS.Controllers;
 
@@ -14,30 +18,39 @@ public class LoginController : ControllerBase
 
     private readonly IMapper iMapper;
 
-    private readonly ILoginBusiness iLoginBusiness;
+    private readonly ILoginBusiness loginBusiness;
+
 
     public LoginController(cmsContext context, IMapper iMapper, ILoginBusiness iLoginBusiness)
     {
         this.context = context;
         this.iMapper = iMapper;
-        this.iLoginBusiness = iLoginBusiness;
+        this.loginBusiness = iLoginBusiness;
     }
 
     [HttpPost("login")]
     public ActionResult<User> login(LoginInDto loginModel)
     {
-        var user = iLoginBusiness.Login(loginModel);
+        var user = loginBusiness.Login(loginModel);
         if (null == user)
         {
             return NotFound();
         }
 
-        return Ok(iMapper.Map<LoginOutDto>(user));
+        return Ok(user);
     }
 
+    [Authorize]
     [HttpGet("isLogin")]
-    public ActionResult<IsLoginOutDto> isLogin()
+    public async Task<ActionResult<IsLoginOutDto>> isLogin()
     {
-        return Ok(new IsLoginOutDto { userId = "1953474", identity = "学生" });
+        //access token
+        var authenticationInfo = await HttpContext.GetTokenAsync("access_token");
+        //get info
+        JwtSecurityToken jwtSecurityToken = new JwtSecurityToken(authenticationInfo);
+        var payload = jwtSecurityToken.Payload;
+        var claims = payload.Claims.ToDictionary(c => c.Type, c => c.Value);
+
+        return Ok(new IsLoginOutDto { userId = claims.GetValueOrDefault("userId", ""), identity = claims.GetValueOrDefault("identity", "") });
     }
 }

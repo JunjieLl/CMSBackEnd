@@ -5,5 +5,5 @@ namespace CMS.Business;
 
 public interface ILoginBusiness
 {
-    public User? Login(LoginInDto loginModel);
+    public LoginOutDto? Login(LoginInDto loginModel);
 }

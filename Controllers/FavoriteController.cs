@@ -1,7 +1,8 @@
 using CMS.Models;
 using CMS.Business;
 using Microsoft.AspNetCore.Mvc;
-using CMS.Business;
+
+
 
 namespace CMS.Controllers;
 
@@ -9,6 +10,7 @@ namespace CMS.Controllers;
 [Route("api/Favorite")]
 public class FavoriteController : ControllerBase
 {
+
     private readonly IFavoriteBusiness favoriteBusiness;
 
     public FavoriteController(IFavoriteBusiness favoriteBusiness)

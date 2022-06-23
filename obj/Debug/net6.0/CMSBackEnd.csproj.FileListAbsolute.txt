@@ -36,3 +36,11 @@
 /Users/junjieli/Desktop/github.nosync/CMSBackEnd/bin/Debug/net6.0/AutoMapper.dll
 /Users/junjieli/Desktop/github.nosync/CMSBackEnd/bin/Debug/net6.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 /Users/junjieli/Desktop/github.nosync/CMSBackEnd/bin/Debug/net6.0/System.Web.Cors.dll
+/Users/junjieli/Desktop/github.nosync/CMSBackEnd/bin/Debug/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/junjieli/Desktop/github.nosync/CMSBackEnd/bin/Debug/net6.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/junjieli/Desktop/github.nosync/CMSBackEnd/bin/Debug/net6.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/junjieli/Desktop/github.nosync/CMSBackEnd/bin/Debug/net6.0/Microsoft.IdentityModel.Logging.dll
+/Users/junjieli/Desktop/github.nosync/CMSBackEnd/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.dll
+/Users/junjieli/Desktop/github.nosync/CMSBackEnd/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/junjieli/Desktop/github.nosync/CMSBackEnd/bin/Debug/net6.0/Microsoft.IdentityModel.Tokens.dll
+/Users/junjieli/Desktop/github.nosync/CMSBackEnd/bin/Debug/net6.0/System.IdentityModel.Tokens.Jwt.dll
