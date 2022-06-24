@@ -21,4 +21,8 @@
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.20.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="CPPCLI\CPPCLI.vcxproj" />
+  </ItemGroup>
+
 </Project>

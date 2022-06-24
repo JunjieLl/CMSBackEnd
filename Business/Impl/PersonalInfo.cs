@@ -176,14 +176,10 @@ public class PersonalInfoBusiness : IPersonalInfoBusiness
         {
             return null;
         }
-
-
-        string code = "";
-        Random random = new Random();
-        for (int i = 0; i < 6; ++i)
-        {
-            code += (random.Next() % 10).ToString();
-        }
+        //inter op with C++/CLI
+        var codeGenerator = new INTEROPCPPCLI.VerificationCode();
+        string code = codeGenerator.generate();
+       
         string content = $"Hello, {userInfo.UserName}! Your code is {code}. The verification code is valid within 5 minutes.";
 
         try
