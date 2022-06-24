@@ -36,6 +36,7 @@ public class LoginBusiness : ILoginBusiness
         // && u.Password!.Equals(loginModel.password));
         var user = context.Users.SingleOrDefault(u => u.UserId.Equals(loginModel.userId));
 
+        var res = IsStringEqual(user.Password, loginModel.password);
         if (user == null||!IsStringEqual(user.Password,loginModel.password))
         {
             return null;
