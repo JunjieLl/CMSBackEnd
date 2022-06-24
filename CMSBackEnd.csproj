@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="CPPCLI\CPPCLI.vcxproj" />
+    <ProjectReference Include="Win32Dll\Win32Dll.vcxproj" />
   </ItemGroup>
 
 </Project>

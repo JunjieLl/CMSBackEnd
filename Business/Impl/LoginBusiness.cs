@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Text;
 
 using AutoMapper;
+using System.Runtime.InteropServices;
 
 
 namespace CMS.Business;
@@ -17,8 +18,13 @@ public class LoginBusiness : ILoginBusiness
 
     private readonly IMapper mapper;
 
+    [DllImport("Win32Dll.dll")]
+    private static extern bool IsStringEqual(string s1, string s2);
+
     public LoginBusiness(cmsContext context, IConfiguration configuration, IMapper mapper)
     {
+
+
         this.configuration = configuration;
         this.context = context;
         this.mapper = mapper;
@@ -26,10 +32,11 @@ public class LoginBusiness : ILoginBusiness
 
     public LoginOutDto? Login(LoginInDto loginModel)
     {
-        var user = context.Users.SingleOrDefault(u => u.UserId.Equals(loginModel.userId)
-        && u.Password!.Equals(loginModel.password));
+        //var user = context.Users.SingleOrDefault(u => u.UserId.Equals(loginModel.userId)
+        // && u.Password!.Equals(loginModel.password));
+        var user = context.Users.SingleOrDefault(u => u.UserId.Equals(loginModel.userId));
 
-        if (user == null)
+        if (user == null||!IsStringEqual(user.Password,loginModel.password))
         {
             return null;
         }
