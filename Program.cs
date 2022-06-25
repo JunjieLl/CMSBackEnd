@@ -57,7 +57,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     };
 });
 //redis
-builder.Services.AddScoped<RedisClient>(
+builder.Services.AddSingleton<RedisClient>(
     i => new RedisClient(builder.Configuration["MyRedis:url"], builder.Configuration.GetValue<int>("MyRedis:port"), builder.Configuration["MyRedis:password"]));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

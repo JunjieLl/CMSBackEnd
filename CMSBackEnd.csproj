@@ -22,8 +22,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ConverterLibrary\ConverterLibrary.csproj" />
+    <ProjectReference Include="..\EmailLibrary\EmailLibrary.csproj" />
     <ProjectReference Include="CPPCLI\CPPCLI.vcxproj" />
     <ProjectReference Include="Win32Dll\Win32Dll.vcxproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Utils\" />
   </ItemGroup>
 
 </Project>

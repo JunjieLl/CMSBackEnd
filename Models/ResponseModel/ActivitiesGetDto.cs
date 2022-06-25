@@ -1,5 +1,5 @@
 using System.Text.Json.Serialization;
-using CMS.CONFIG;
+using ConverterLibrary;
 namespace CMS.Models;
 
 public class ActivitiesGetDto
