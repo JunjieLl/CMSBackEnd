@@ -1,7 +1,7 @@
 # CMSBackEnd
 C# version of CMSBackEnd(Java)
 
-项目整体架构如图所示。
+项目整体架构如图所示，[CMSAPP](https://github.com/JunjieLl/CMSAPP)。
 
 ![未命名文件-2](https://p.ipic.vip/do6k4f.png)
 
